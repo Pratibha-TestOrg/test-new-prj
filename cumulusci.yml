@@ -1,0 +1,28 @@
+minimum_cumulusci_version: '3.88.0'
+project:
+    name: test-new-prj
+    package:
+        name: test-new-prj
+        api_version: '60.0'
+    git:
+        default_branch: 'main'
+        prefix_feature: 'feature/'
+        prefix_beta: 'beta/'
+        prefix_release: 'release/'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/test-new-prj/tests
+            options:
+                outputdir: robot/test-new-prj/results
+
+    robot_testdoc:
+        options:
+            path: robot/test-new-prj/tests
+            output: robot/test-new-prj/doc/test-new-prj_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
